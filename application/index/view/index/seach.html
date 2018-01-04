@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>五畜网站</title>
+    <link rel="stylesheet" href="/public/css/style.css" />
+</head>
+<body>
+<div class="wrap">
+    {include file="index/header"/}
+    {include file="index/menu"/}
+    <div class="content">
+        <form name="myform" method="post" action="">
+            <div class="main">
+                <div class="search">
+                    <input type="hidden" name="tip" value="1">
+                    <input class="search-txt mongol-input" name="content" type="text" />
+                    <input class="search-btn mongol-input" name="subbtn" value="" type="submit" /></div>
+                <div class="search-list">
+                    <table class="search-list-tb" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            {volist name="list" id="line"}
+                            <td valign="top"><span><a href="/index.php/index/index/temege?id={$line.id}">{$line.word}</a></span></td>
+                            {/volist}
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </form>
+    </div></div></body></html>

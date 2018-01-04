@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>五畜网站</title>
+    <link rel="stylesheet" href="/public/css/style.css" />
+</head>
+<body>
+<div class="wrap">
+    {include file="index/header"/}
+    {include file="index/menu"/}
+    <div class="content">
+	<div class="main">
+		
+        
+        <div class="wuxu">
+        	<span class="mongol-writing">{$temege.word}</span>
+	        <div class="edit">
+		        <!--<a href="temege_tianjia.php?pid=<?php echo $arr["id"]?>"><img src="img/tianjia.png"/></a>-->
+		        <!--<a href="temege_shanchu.php?id=<?php echo $arr["id"]?>"><img src="img/shanchu.png"/></a>-->
+		        <!--<a href="temege_bianji.php?id=<?php echo $arr["id"]?>"><img src="img/bianji.png"/></a>-->
+                <br><br><br>
+		        <a href="/index.php/index/index/seach"><img src="/public/img/sousuo.png"/></a>
+	        </div>
+        </div>
+        <div class="jieshao"><span class="mongol-writing"></span></div>
+
+        
+        </div>
+        <div class="list">
+        <table class="list-tb" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            {volist name="list" id="line"}
+              <td valign="top"><span><a href="/index.php/index/index/temege?id={$line.id}">{$line.word}</a></span></td>
+              {/volist}
+          </tr>
+        </table>
+        </div>
+        <div class="tupian"><img width="360" height="360" src="{$temege.img}" /></div>
+    </div></div></body></html>

@@ -1,0 +1,464 @@
+﻿@font-face {
+font-family:'Menksoft2012';
+font-style:normal;
+font-weight:normal;
+src:url('../font/Menksoft2012.eot');
+src:url('../font/Menksoft2012.eot?#iefix') format('embedded-opentype'),
+url('../font/Menksoft2012.woff') format('woff'),
+url('../font/Menksoft2012.ttf') format('truetype');
+}
+@font-face {
+font-family:'MenkGarqag';
+font-style:normal;
+font-weight:normal;
+src:url('../font/MenkGarqag.eot');
+src:url('../font/MenkGarqag.eot?#iefix') format('embedded-opentype'),
+url('../font/MenkGarqag.woff') format('woff'),
+url('../font/MenkGarqag.ttf') format('truetype');
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td {
+	margin:0;
+	padding:0;
+	}
+table{
+	border-collapse:collapse;	
+	border-spacing:0;
+	}
+fieldset,img{
+	border:0;
+	}
+address,caption,cite,code,dfn,em,th,var,i{
+	font-style:normal;
+	font-weight:normal;
+	}
+ol,ul{
+	list-style:none;
+	}
+caption,th{
+	text-align:left;
+	}
+h1,h2,h3,h4,h5,h6{
+	font-size:100%;
+	font-weight:normal;
+	}
+q:before,q:after{
+	content:'';
+	}
+a:focus{
+	outline-style:none;
+	}
+abbr,acronym{
+	border:0;
+	font-variant:normal;
+	}
+sup{
+	vertical-align:text-top;
+}
+sub{
+	vertical-align:text-bottom;
+	}
+input,textarea,select{
+	font-family:inherit;
+	font-size:inherit;
+	font-weight:inherit;
+	*font-size:100%; 
+	}
+textarea{
+	resize:none;
+	}
+input::-ms-clear{
+	 display: none; 
+	 }
+a:link{
+	font:normal 18px Menksoft2012;
+	color:#aa8501;
+	text-decoration:none;
+	}
+a:visited{
+	font:normal 18px Menksoft2012;
+	color:#aa8501;text-decoration:none;
+	}
+a:hover{
+	font:normal 18px Menksoft2012;
+	color:#f60;
+	tevxt-decoration:none;
+	}
+a:active{
+	font:normal 18px Menksoft2012;
+	color:red;
+	text-decoration:none;
+	}
+.mongol-input{
+	float:left;
+	-ms-transform:rotate(90deg) translate(0, -100%);
+	-ms-transform-origin:0% 0%;
+	-webkit-transform:rotate(90deg) translate(0, -100%);
+	-webkit-transform-origin:0% 0%;
+	-moz-transform:rotate(90deg) translate(0,-100%);
+	-moz-transform-origin:0% 0%;
+	-o-transform:rotate(90deg) translate(0,-100%);
+	-o-transform-origin:0% 0%;
+	white-space:nowrap;
+	}
+.mongol-writing{
+	float:left;
+	-ms-writing-mode:tb-lr;
+    -webkit-writing-mode:vertical-lr;
+    -webkit-text-orientation:sideways-right;
+    writing-mode:vertical-lr;
+    text-orientation:sideways-right;
+}
+/*.mongol-title{float:left;width:20px;margin-top:8px;-ms-transform:rotate(90deg) translate(0, -100%);-ms-transform-origin:0% 0%;-webkit-transform:rotate(90deg) translate(0, -100%);-webkit-transform-origin:0% 0%;-moz-transform:rotate(90deg) translate(0,-100%);-moz-transform-origin:0% 0%;-o-transform:rotate(90deg) translate(0,-100%);-o-transform-origin:0% 0%;white-space:nowrap;}*/
+.wrap{
+	width:2000px;
+}
+/*-------------------------------首页样式-------------------------------------------*/
+/* 页头 */
+.header{
+	width:200px;
+	height:620px; 
+	float: left;
+	background:#1e5744 url(../img/zier.png) no-repeat center center;
+	}
+.header-main{
+	width:200px;
+	margin:0 auto;
+	position:relative;
+	}
+.logo{
+	width:271px;
+	height:85px;
+	margin:0px auto;
+	}
+.logo img {
+    width: 200px;
+    margin-top: 70px;
+}
+.user{
+	width:82px;
+	height:40px;
+	top:500px;
+	right:60px;
+	position:absolute;
+	}
+/* 页头结束 */
+/* 内容 */
+.content {
+    width: 1100px;
+    float: left;
+    height: 620px;
+    background: gainsboro;
+}
+.main{
+	width:1050px;
+	margin:110px auto;
+	}
+.left-font {
+    width: 485px;
+    height: 328px;
+    float: left;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+.left-font span{
+	font:normal 18px/30px MenkSoft2012;
+	}
+.left-font font{
+	font:normal 18px/30px MenkGarqag;
+	margin-right:20px;
+	}
+.right-img {
+    width: 518px;
+    height: 358px;
+    margin-top: 10px;
+    float: left;
+    margin-left: -80px;
+}
+/* 内容结束 */
+.huawen {
+    float: left;
+    width: 90px;
+    height: 610px;
+    margin-left:10px;
+    margin-right:-25px;
+    background: url(../img/huawen.png) no-repeat center center;
+}
+/* 菜单*/
+.menu {
+    float: left;
+    margin-left:33px;
+    width: 200px;
+    height: 620px;
+}
+.menu ul{
+	width:200px;
+	margin:0 auto;
+	}
+.menu ul li,.menu ul li a{
+	width:170px;
+	height:110px; 
+	display: block;
+	margin-top: 12px;
+	}
+.mori{
+	margin-top: 0;
+}
+.menu ul li.temege a{
+	background:url(../img/temege1.png) no-repeat center center;
+	}
+.menu ul li.temege a:hover{
+	background:url(../img/temege2.png) no-repeat center center;
+	}
+.menu ul li.honi a{
+	background:url(../img/honi1.png) no-repeat center center;
+	}
+.menu ul li.honi a:hover{
+	background:url(../img/honi2.png) no-repeat center center;
+	}
+.menu ul li.mori a{
+	background:url(../img/mori1.png) no-repeat center center;
+	}
+.menu ul li.mori a:hover{
+	background:url(../img/mori2.png) no-repeat center center;
+	}
+.menu ul li.yimaga a{
+	background:url(../img/yimaga1.png) no-repeat center center;
+	}
+.menu ul li.yimaga a:hover{
+	background:url(../img/yimaga2.png) no-repeat center center;
+	}
+.menu ul li.uher a{
+	background:url(../img/uher1.png) no-repeat center center;
+	}
+.menu ul li.uher a:hover{
+	background:url(../img/uher2.png) no-repeat center center;
+	}
+/* 菜单结束*/
+/*-------------------------------首页样式结束-----------------------------------------*/
+
+/*-------------------------------骆驼介绍页样式---------------------------------------*/
+.detailed{
+	margin-top:30px;
+	}
+.wuxu{
+	float:left;
+	width:30px;
+	height:360px; 
+	position:relative;
+	}
+.wuxu span{
+	font:normal 18px/30px MenkGarqag;
+	}
+.edit{
+	width:30px;
+	height:105px;
+	position:absolute;
+	left:0px;bottom:0px;
+	}
+.edit img{
+	 float:left;
+	 margin-top:5px;
+	 }
+.jieshao{
+	float:left;
+	width:228px;
+	height:338px;
+	padding:10px;
+	border:1px solid #dcdcdc; 
+	background:#fff; overflow:auto;}
+	
+.jieshao span{
+	font:normal 18px/20px MenkSoft2012;
+	}
+.tupian{
+	float:left;
+	width:360px;
+	height:360px;
+        margin-left:30px;
+	margin-right:12px;
+	}
+.tupian img{
+	width:360px;
+	height:360px;
+	}
+.list{
+	float:left;
+	width:360px;
+	height:358px; 
+	border:1px solid #dcdcdc; 
+	background:#fff; 
+	overflow:auto;
+	}
+.list-tb{float:left;
+height:320px;
+}
+.list-tb td{
+	align:left;
+	valign:top;
+	width:30px;
+	}
+.list-tb td span{
+	height:320px;
+	margin-top:10px;
+	float:left;
+	-ms-writing-mode:tb-lr;
+    -webkit-writing-mode:vertical-lr;
+    -webkit-text-orientation:sideways-right;
+    writing-mode:vertical-lr;
+    text-orientation:sideways-right;font:normal 18px/25px MenkSoft2012;
+}
+/*-------------------------------骆驼介绍页样式结束------------------------------------*/
+
+/*-------------------------------骆驼搜索页样式---------------------------------------*/
+.search{
+	float:left;
+	width:30px;
+	height:360px;
+	 position:relative;
+	 }
+.search-txt{
+	width:310px;
+	height:30px;
+	border:1px solid #dcdcdc;
+	}
+.search-btn{
+	width:50px;
+	height:32px;
+	background:#dcdcdc;
+	 position:absolute;
+	 left:0px;top:300px; 
+	 border:none; 
+	 cursor:pointer;
+	 }
+.search-txt,.search-btn{
+	font:normal 18px/30px MenkSoft2012;color:#333;
+	}
+.search-list{
+	float:right;
+	width:960px;
+	height:358px;
+	 border:1px solid #dcdcdc; 
+	 background:#fff; overflow:auto;
+	 }
+.search-list-tb{
+	float:left;
+	width:auto;
+	height:320px;
+	}
+.search-list-tb td{
+	align:left;
+	valign:top;
+	width:30px;
+	}
+.search-list-tb td span{
+	height:320px;
+	margin-top:10px;
+	float:left;
+	-ms-writing-mode:tb-lr;
+        -webkit-writing-mode:vertical-lr;
+        -webkit-text-orientation:sideways-right;
+        writing-mode:vertical-lr;
+        text-orientation:sideways-right;font:normal 18px/25px MenkSoft2012;
+}
+/*焦点图*/
+#solid{
+	width:1000px;
+	height:400px;
+	clear:both;
+	margin:15px auto;
+	position:relative;
+}
+#solid .solid0,#solid .solid1,#solid .solid2{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:1000px;
+	height:400px;
+	display:none;
+}
+#solid .solid0{
+	background:#78c4db;
+}
+#solid .solid1{
+	background:#c5c9db;
+}
+#solid .solid2{
+	background:#e7dfd1;
+}
+#solid ul{
+	margin:0px;
+	padding:0px;
+	list-style:none;	
+}
+#solid ul li{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:1000px;
+	height:400px;
+	display:none;
+	cursor:pointer;
+}
+#solid #btt{
+	width:1000px;
+	height:55px;
+	top:350px;
+	position:relative;
+}
+#solid #btt span{
+	position:absolute;
+	top:15px;
+	left:45%;
+	display:block;
+	width:30px;
+	height:8px;
+	margin:0 15px;	
+	text-align:center;
+	background:#3d3d3d;
+	z-index:1000;
+	cursor:pointer;
+	filter:alpha(opacity=70); 
+	-moz-opacity:0.7; 
+	opacity:0.7;
+}
+/*-------------------------------骆驼搜索页样式结束---------------------------------------*/
+
+/*-------------------------------骆驼添加修改页样式结束---------------------------------------*/
+.name,.xiangxi,.tupian-file{
+        float:left;
+        width:25px;
+        height:360px;
+        font:normal 18px/20px MenkSoft2012;
+}
+.name,.tupian-file,.xiangxi-edit{
+        margin-right:15px;
+}
+.name-txt{
+       width:300px;
+       height:25px;
+       border:1px solid #dcdcdc;
+}
+.xiangxi-edit{
+       float:left;
+       width:208px;
+       height:360px;
+}
+.edit-textarea{
+       height:208px;
+       width:358px;
+       border:1px solid #dcdcdc; 
+       background:#fff;font:normal 18px/20px MenkSoft2012;
+}
+.btn-box{
+       float:left;
+       width:40px; 
+       height:360px;
+}
+.edit-btn{
+       width:50px;
+       height:32px;
+       background:#dcdcdc;
+       border:none; 
+       cursor:pointer;
+       font:normal 18px/20px MenkSoft2012;
+}

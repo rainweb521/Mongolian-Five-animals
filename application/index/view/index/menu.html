@@ -1,0 +1,29 @@
+<script src="http://cos.rain1024.com/blog/static/js/jquery.min.js"></script>
+<script src="http://cos.rain1024.com/blog/static/js/layer/layer.js"></script>
+<div class="menu">
+    <ul>
+        <li class="mori" onclick="islogin('mori')"><a href="#"></a></li>
+        <li class="temege" onclick="islogin('temege')"><a href="#"></a></li>
+        <li class="uher" onclick="islogin('uher')"><a href="#"></a></li>
+        <li class="honi" onclick="islogin('honi')"><a href="#"></a></li>
+        <li class="yimaga" onclick="islogin('yimaga')"><a href="#"></a></li>
+    </ul>
+</div>
+<script>
+    function islogin(name){
+        var login_state = document.getElementById('login_state').innerHTML;
+        if (login_state=='未登录'){
+            layer.confirm('您还未登录？', {
+                btn: ['登录','注册'] //按钮
+            }, function(){
+                location.href = '/index.php/index/login';
+            }, function(){
+                location.href = '/index.php/index/login/signup';
+            });
+//            layer.alert(layer.v + ' - 贤心出品 sentsin.com');
+//            location.href = '/index.php/index/login';
+        }else{
+            location.href = '/index.php/index/index/'+name+'?id=1';
+        }
+    }
+</script>
