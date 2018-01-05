@@ -17,6 +17,13 @@ class Common extends Controller {
 //        $this->_initialize();
         $this->_init();
 //        $this->assign('title','中学化学教学系统');
+        $isLogin = $this->isLogin();
+        if (!$isLogin) {
+            $login_state = '未登录';
+        }else{
+            $login_state = '已登录';
+        }
+        $this->assign('login_state',$login_state);
     }
     protected function _initialize(){
         //只报告错误,忽略通知
@@ -50,6 +57,7 @@ class Common extends Controller {
         }else{
             $this->assign('User',session('User'));
         }
+
     }
 
     /**

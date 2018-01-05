@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>五畜网站</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="/public/admin/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/public/admin/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="/public/admin/css/amazeui.min.css" />
+    <link rel="stylesheet" href="/public/admin/css/admin.css">
+    <link rel="stylesheet" href="/public/admin/css/app.css">
+</head>
+
+<body data-type="generalComponents">
+
+
+
+
+
+{include file="index/header"/}
+
+
+<div class="tpl-page-container tpl-page-header-fixed">
+    {include file="index/menu"/}
+
+        <div class="tpl-content-wrapper">
+
+
+            <div class="tpl-portlet-components">
+                <div class="portlet-title">
+                    <div class="caption font-green bold">
+                        <span class="am-icon-code"></span> 列表
+                    </div>
+                    <div class="tpl-portlet-input tpl-fz-ml">
+                        <div class="portlet-input input-small input-inline">
+                            <div class="input-icon right">
+                                <!--<i class="am-icon-search"></i>-->
+                                <input type="hidden" class="form-control form-control-solid" placeholder="搜索..."> </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="tpl-block">
+                    <div class="am-g">
+                        <div class="am-u-sm-12 am-u-md-6">
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                    <button type="button" class="am-btn am-btn-default am-btn-success" onclick="location='/admin.php/admin/yimaga/insert?type=0&id={$temege.id}';"><span class="am-icon-plus"></span> 新增</button>
+                                    {if condition="$temege.id neq 1"}
+                                    <button type="button" class="am-btn am-btn-default am-btn-secondary" onclick="location='/admin.php/admin/yimaga/insert?type=1&id={$temege.id}';"><span class="am-icon-pencil-square-o"></span> 修改</button>
+                                    <button type="button" class="am-btn am-btn-default am-btn-danger" onclick="location='/admin.php/admin/yimaga/delete?type=2&id={$temege.id}';"><span class="am-icon-trash-o"></span> 删除</button>
+                                    {/if}
+                                </div>
+        </div>
+    </div>
+</div>
+<div class="am-g">
+
+    <div class="am-u-sm-12">
+        <form class="am-form">
+
+            <style>
+                .list{
+                    float:left;
+                    width:75%;
+                    height:358px;
+                    border:1px solid #dcdcdc;
+                    background:#fff;
+                    overflow:auto;
+                }
+                .list-tb{float:right;
+                    height:320px;
+                }
+                .list-tb td{
+                    align:right;
+                    valign:top;
+                    width:30px;
+                }
+                .list-tb td span{
+                    height:320px;
+                    margin-top:10px;
+                    float:left;
+                    -ms-writing-mode:tb-lr;
+                    -webkit-writing-mode:vertical-lr;
+                    -webkit-text-orientation:sideways-right;
+                    writing-mode:vertical-lr;
+                    text-orientation:sideways-right;font:normal 18px/25px MenkSoft2012;
+                }
+                .mongol-writing{
+
+                    float:left;
+                    -ms-writing-mode:tb-lr;
+                    -webkit-writing-mode:vertical-lr;
+                    -webkit-text-orientation:sideways-right;
+                    writing-mode:vertical-lr;
+                    text-orientation:sideways-right;
+                }
+                .tupian{
+                    float:left;
+                    width: 20%;
+                    margin-left:10px;
+                    margin-right:10px;
+                }
+                .tupian img{
+
+                }
+            </style>
+            <div style="width: 100%;">
+            <div class="mongol-writing">{$temege.word}</div>
+            <div class="list">
+                <table class="list-tb" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        {volist name="list" id="line"}
+                        <td valign="top"><span><a href="/admin.php/admin/yimaga/index?id={$line.id}">{$line.word}</a></span></td>
+                        {/volist}
+                    </tr>
+                </table>
+            </div>
+            <div class="tupian"><img width="100%" height="100%" src="{$temege.img}" /></div>
+            </div>
+
+            <hr>
+
+        </form>
+    </div>
+
+</div>
+</div>
+<div class="tpl-alert"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+<script src="/public/admin/js/jquery.min.js"></script>
+<script src="/public/admin/js/amazeui.min.js"></script>
+<script src="/public/admin/js/app.js"></script>
+</body>
+
+</html>

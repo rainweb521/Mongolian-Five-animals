@@ -14,13 +14,14 @@
             <div class="main">
                 <div class="search">
                     <input type="hidden" name="tip" value="1">
+                    <input type="hidden" name="type" value="{$type}">
                     <input class="search-txt mongol-input" name="content" type="text" />
                     <input class="search-btn mongol-input" name="subbtn" value="" type="submit" /></div>
                 <div class="search-list">
                     <table class="search-list-tb" border="0" cellspacing="0" cellpadding="0">
                         <tr>
                             {volist name="list" id="line"}
-                            <td valign="top"><span><a href="/index.php/index/index/temege?id={$line.id}">{$line.word}</a></span></td>
+                            <td valign="top"><span><a href="/index.php/index/index/{$status}?id={$line.id}">{$line.word}</a></span></td>
                             {/volist}
                         </tr>
                     </table>
