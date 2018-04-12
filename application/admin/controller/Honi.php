@@ -11,9 +11,9 @@ class Honi extends Common{
         $mori = new HoniM();
         $list = $mori->get_honiList(array('ParentId'=>$id));
         $temege = $mori->get_honiInfo(array('id'=>$id));
-        if (empty($temege)){$temege['img'] = '';$temege['word']='';$temege['id'] = $id;}
-        if ($temege['img']==''){$temege['img']='/public/img/shanyang.jpg';}
-        else if ($temege['img'][1]!='p'){$temege['img']='/public/file/'.$temege['img'];}
+        if (empty($temege)){$temege['img'] = '';$temege['word']='';$temege['mp3']='';$temege['id'] = $id;}
+        if ($temege['img']=='0'){$temege['img']='/public/img/3.1.jpg';}
+        if ($temege['img']==''){$temege['img']='/public/img/3.1.jpg';}
         if (empty($temege['word'])){$temege['word']='';}
         return view('index',array('list'=>$list,'temege'=>$temege));
 //        return '<style type="text/css">*{ padding: 0; margin: 0; } .think_default_text{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #fff; font-family: "Century Gothic","Microsoft yahei"; color: #333;font-size:18px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p> ThinkPHP V5<br/><span style="font-size:30px">十年磨一剑 - 为API开发设计的高性能框架</span></p><span style="font-size:22px;">[ V5.0 版本由 <a href="http://www.qiniu.com" target="qiniu">七牛云</a> 独家赞助发布 ]</span></div><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_bd568ce7058a1091"></thinkad>';
@@ -43,21 +43,10 @@ class Honi extends Common{
             if ($type==0){
                 $data['word'] = Request::instance()->post('word','');
                 $data['Meaning'] = Request::instance()->post('Meaning','');
-                $img = request()->file('img');
-                if($img){
-                    $info = $img->move(ROOT_PATH . 'public' . DS . 'img');
-                    if($info){
-//                    $data = $experiment_model->get_ExperimentInfo(array('e_id'=>$e_id));
-                        $data['img'] = '/public/img/'.$info->getSaveName();
-//                    $experiment_model->save_ExperimentInfo($data,array('e_id'=>$e_id));
-//                    $this->success('上传成功','/admin.php/admin/experiment');
-                    }else{
-                        $this->error('上传失败，可能出现的原因：'.$img->getError());
-                    }
-                }else{
-                    /** 没有上传文件 */
-                    $data['img'] = '';
-                }
+                $img = upload_file('img');
+                if ($img!='0'){$data['img']=$img;}
+                $mp3 = upload_file('mp3');
+                if ($mp3!='0'){$data['mp3']=$mp3;}
                 $data['ParentId'] = $id;
                 $temege_model->insert_honiInfo($data);
                 $this->success('添加成功','/admin.php/admin/honi/index?id='.$id,'',1);
@@ -65,21 +54,10 @@ class Honi extends Common{
                 $data = $temege_model->get_honiInfo(array('id'=>$id));
                 $data['word'] = Request::instance()->post('word','');
                 $data['Meaning'] = Request::instance()->post('Meaning','');
-                $img = request()->file('img');
-                if($img){
-                    $info = $img->move(ROOT_PATH . 'public' . DS . 'img');
-                    if($info){
-//                    $data = $experiment_model->get_ExperimentInfo(array('e_id'=>$e_id));
-                        $data['img'] = '/public/img/'.$info->getSaveName();
-//                    $experiment_model->save_ExperimentInfo($data,array('e_id'=>$e_id));
-//                    $this->success('上传成功','/admin.php/admin/experiment');
-                    }else{
-                        $this->error('上传失败，可能出现的原因：'.$img->getError());
-                    }
-                }else{
-                    /** 没有上传文件 */
-//                    $data['img'] = '';
-                }
+                $img = upload_file('img');
+                if ($img!='0'){$data['img']=$img;}
+                $mp3 = upload_file('mp3');
+                if ($mp3!='0'){$data['mp3']=$mp3;}
                 $temege_model->save_honiInfo($data,array('id'=>$id));
                 $this->success('修改成功','/admin.php/admin/honi/index?id='.$id,'',1);
             }

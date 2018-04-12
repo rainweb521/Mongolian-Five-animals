@@ -17,20 +17,36 @@
   <link rel="stylesheet" href="/public/admin/css/admin.css">
   <link rel="stylesheet" href="/public/admin/css/app.css">
 </head>
-
+<style>
+	body {
+		margin-left: 40%;
+		-moz-transform: rotate(-90deg);
+		-webkit-transform: rotate(-90deg);
+		display: block;
+		position: absolute;
+		/*filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0)*/
+	}
+	.unrever{
+		margin-left: 40%;
+		-moz-transform: rotate(90deg);
+		-webkit-transform: rotate(90deg);
+		display: block;
+		position: absolute;
+	}
+</style>
 <body data-type="login">
 
-  <div class="am-g myapp-login">
+  <div >
 	<div class="myapp-login-logo-block  tpl-login-max">
 		<div class="myapp-login-logo-text">
 			<div class="myapp-login-logo-text">
-				五畜网站-<span>后台管理系统 </span> <i class="am-icon-skyatlas"></i>
+				<span class="unrever" style="margin-top:-23%;">五<br>畜<br>网<br>站</span><i class="am-icon-skyatlas"></i>
 
 			</div>
 		</div>
 
 		<div class="login-font">
-			<i>{$state} </i>
+			<!--<i>{$state} </i>-->
 			<!--<span> Sign Up</span>-->
 		</div>
 		<div class="am-u-sm-10 login-am-center">
@@ -43,7 +59,7 @@
 					<div class="am-form-group">
 						<input type="password" name="a_password" class="" id="doc-ipt-pwd-1" placeholder="输入密码">
 					</div>
-					<p><button type="submit"  class="am-btn am-btn-default">登录</button></p>
+					<p class="unrever" style="margin-left:12%;"><button type="submit"  class="am-btn am-btn-default"><span >登<br>录</span></button></p>
 				</fieldset>
 			</form>
 		</div>

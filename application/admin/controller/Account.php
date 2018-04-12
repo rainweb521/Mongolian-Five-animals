@@ -22,7 +22,7 @@ class Account extends Common{
                 $data['username'] = Request::instance()->post('username','');
                 $data['email'] = Request::instance()->post('email','');
                 $data['password'] = Request::instance()->post('password','');
-                $data['registration_time'] = date('Y-m-d');
+                $data['register_time'] = date('Y-m-d');
                 $data['state'] = Request::instance()->port('state',1);
                 $user_model->insert_UserInfo($data);
                 $this->success('添加成功','/admin.php/admin/account/index');

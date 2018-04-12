@@ -20,9 +20,9 @@ class Index extends Common{
         $temege_model = new Temege();
         $list = $temege_model->get_temegeList(array('ParentId'=>$id));
         $temege = $temege_model->get_temegeInfo(array('id'=>$id));
-        if (empty($temege)){$temege['img'] = '';$temege['word']='';$temege['id'] = $id;}
+        if (empty($temege)){$temege['img'] = '';$temege['word']='';$temege['mp3']='';$temege['id'] = $id;}
+        if ($temege['img']=='0'){$temege['img']='/public/img/1.jpg';}
         if ($temege['img']==''){$temege['img']='/public/img/1.jpg';}
-        else if ($temege['img'][1]!='p'){$temege['img']='/public/file/'.$temege['img'];}
         if (empty($temege['word'])){$temege['word']='';}
         return view('temege',array('list'=>$list,'temege'=>$temege));
     }
@@ -51,21 +51,10 @@ class Index extends Common{
             if ($type==0){
                 $data['word'] = Request::instance()->post('word','');
                 $data['Meaning'] = Request::instance()->post('Meaning','');
-                $img = request()->file('img');
-                if($img){
-                    $info = $img->move(ROOT_PATH . 'public' . DS . 'img');
-                    if($info){
-//                    $data = $experiment_model->get_ExperimentInfo(array('e_id'=>$e_id));
-                        $data['img'] = '/public/img/'.$info->getSaveName();
-//                    $experiment_model->save_ExperimentInfo($data,array('e_id'=>$e_id));
-//                    $this->success('上传成功','/admin.php/admin/experiment');
-                    }else{
-                        $this->error('上传失败，可能出现的原因：'.$img->getError());
-                    }
-                }else{
-                    /** 没有上传文件 */
-                    $data['img'] = '';
-                }
+                $img = upload_file('img');
+                if ($img!='0'){$data['img']=$img;}
+                $mp3 = upload_file('mp3');
+                if ($mp3!='0'){$data['mp3']=$mp3;}
                 $data['ParentId'] = $id;
                 $temege_model->insert_temegeInfo($data);
                 $this->success('添加成功','/admin.php/admin/index/temege?id='.$id,'',1);
@@ -73,21 +62,10 @@ class Index extends Common{
                 $data = $temege_model->get_temegeInfo(array('id'=>$id));
                 $data['word'] = Request::instance()->post('word','');
                 $data['Meaning'] = Request::instance()->post('Meaning','');
-                $img = request()->file('img');
-                if($img){
-                    $info = $img->move(ROOT_PATH . 'public' . DS . 'img');
-                    if($info){
-//                    $data = $experiment_model->get_ExperimentInfo(array('e_id'=>$e_id));
-                        $data['img'] = '/public/img/'.$info->getSaveName();
-//                    $experiment_model->save_ExperimentInfo($data,array('e_id'=>$e_id));
-//                    $this->success('上传成功','/admin.php/admin/experiment');
-                    }else{
-                        $this->error('上传失败，可能出现的原因：'.$img->getError());
-                    }
-                }else{
-                    /** 没有上传文件 */
-//                    $data['img'] = '';
-                }
+                $img = upload_file('img');
+                if ($img!='0'){$data['img']=$img;}
+                $mp3 = upload_file('mp3');
+                if ($mp3!='0'){$data['mp3']=$mp3;}
                 $temege_model->save_temegeInfo($data,array('id'=>$id));
                 $this->success('修改成功','/admin.php/admin/index/temege?id='.$id,'',1);
             }

@@ -1,8 +1,26 @@
+<style>
+    #login_state{
+        font-weight: bold;
+        color: white;
+        margin-top: -30%;
+        margin-left: -40%;
+        -moz-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        display: block;
+        position: absolute;
+    }
+</style>
 <div class="header">
     <div class="header-main">
         <div class="logo"><a href="index.html"><img src="/public/img/logo.png" /></a></div>
         <div class="user" align="center">
-            <a href="/index.php/index/login"><img src="/public/img/user.png" /><span id="login_state" style="color:black;font-size:15px;">{$login_state}</span></a>
+            <a id="a_login" href="/index.php/index/login"><img src="/public/img/user.png" /><span id="login_state" style="color:black;font-size:15px;">
+                <?php
+                if ($login_state==1){?>
+                ᠨᠢᠭᠡᠨᠲᠡ ᠨᠡᠪᠲᠡᠷᠡᠭᠰᠡᠨ
+                <?php }else{ ?>
+                ᠨᠡᠪᠲᠡᠷᠡᠭᠰᠡᠨ ᠦᠭᠡᠢ
+                <?php } ?></span></a>
         </div>
     </div>
 </div>

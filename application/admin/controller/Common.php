@@ -8,6 +8,7 @@ use \think\View;
 class Common extends Controller {
     public function __construct(){
         header("Content-type: text/html; charset=utf-8");
+        error_reporting(E_ERROR | E_WARNING | E_PARSE);
         parent::__construct();
         $this->_init();
     }
@@ -25,10 +26,6 @@ class Common extends Controller {
         if (!$isLogin) {
             // 跳转到登录页面
             $this->redirect('/admin.php/admin/login/index');
-//            $url = '/index.php?c=login';
-//            echo "<script language=\"javascript\">";
-//            echo "location.href=\"$url\"";
-//            echo "</script>";
         }
     }
 

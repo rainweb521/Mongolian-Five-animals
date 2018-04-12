@@ -15,18 +15,25 @@ class Index extends Common {
     public function index(){
 
         return view('index');
-//        return '<style type="text/css">*{ padding: 0; margin: 0; } .think_default_text{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #fff; font-family: "Century Gothic","Microsoft yahei"; color: #333;font-size:18px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p> ThinkPHP V5<br/><span style="font-size:30px">十年磨一剑 - 为API开发设计的高性能框架</span></p><span style="font-size:22px;">[ V5.0 版本由 <a href="http://www.qiniu.com" target="qiniu">七牛云</a> 独家赞助发布 ]</span></div><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_bd568ce7058a1091"></thinkad>';
     }
+
     public function temege(){
+        /** 获取动物的id*/
         $id = Request::instance()->get('id',0);
         if ($id==0){$id=1;}
+        /** 实例化对应动物的model */
         $temege_model = new Temege();
+        /** 根据动物的id，获取所有和它有归属关系的其他属性 */
         $list = $temege_model->get_temegeList(array('ParentId'=>$id));
+        /** 获取对应id的属性的全部内容 */
         $temege = $temege_model->get_temegeInfo(array('id'=>$id));
+        /** 如果这个属性没有图片，就使用默认的图片 */
         if ($temege['img']==''){$temege['img']='/public/img/1.jpg';}
         else if ($temege['img'][1]!='p'){$temege['img']='/public/file/'.$temege['img'];}
+        /** 返回对应的显示页面，并带入属性列表的值和属性的值 */
         return view('temege',array('list'=>$list,'temege'=>$temege));
     }
+    /** 和上面的类似 */
     public function mori(){
         $id = Request::instance()->get('id',0);
         if ($id==0){$id=1;}
@@ -37,6 +44,7 @@ class Index extends Common {
         else if ($temege['img'][1]!='p'){$temege['img']='/public/file/'.$temege['img'];}
         return view('mori',array('list'=>$list,'temege'=>$temege));
     }
+    /** 和上面的类似 */
     public function yimaga(){
         $id = Request::instance()->get('id',0);
         if ($id==0){$id=1;}
@@ -47,6 +55,7 @@ class Index extends Common {
         else if ($temege['img'][1]!='p'){$temege['img']='/public/file/'.$temege['img'];}
         return view('yimaga',array('list'=>$list,'temege'=>$temege));
     }
+    /**  和上面的类似 */
     public function honi(){
         $id = Request::instance()->get('id',0);
         if ($id==0){$id=1;}
@@ -57,6 +66,7 @@ class Index extends Common {
         else if ($temege['img'][1]!='p'){$temege['img']='/public/file/'.$temege['img'];}
         return view('honi',array('list'=>$list,'temege'=>$temege));
     }
+    /** 和上面的类似 */
     public function uher(){
         $id = Request::instance()->get('id',0);
         if ($id==0){$id=1;}
@@ -68,6 +78,14 @@ class Index extends Common {
         return view('uher',array('list'=>$list,'temege'=>$temege));
     }
     public function seach(){
+        /**
+         * 获取对应的tip和type
+         * type是get请求中的参数，因为每个动物的页面都有查找功能，
+         * 所以我要区分开是要查找哪个动物的信息，并把它的属性列表全部查找出来
+         * tip是post请求的参数，也就是在搜索框中输入内容后点击提交，就会触发
+         * 这个值可以用来判断有没有搜索的行为发生，如果有，那就将输入框的内容获取到，再去数据库中查询
+         *
+         */
         $tip = Request::instance()->post('tip',0);
         $type = Request::instance()->get('type',0);
         if ($type==0){

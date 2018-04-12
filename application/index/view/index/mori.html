@@ -11,8 +11,8 @@
     {include file="index/menu"/}
     <div class="content">
 	<div class="main">
-		
-        
+
+
         <div class="wuxu">
         	<span class="mongol-writing">{$temege.word}</span>
 	        <div class="edit">
@@ -23,18 +23,33 @@
 		        <a href="/index.php/index/index/seach?type=0"><img src="/public/img/sousuo.png"/></a>
 	        </div>
         </div>
-        <div class="jieshao"><span class="mongol-writing"></span></div>
+        <div class="jieshao"><span class="mongol-writing">
+            {$temege.Meaning}
+        </span></div>
 
-        
+
         </div>
         <div class="list">
         <table class="list-tb" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            {volist name="list" id="line"}
-              <td valign="top"><span><a href="/index.php/index/index/mori?id={$line.id}">{$line.word}</a></span></td>
-              {/volist}
-          </tr>
+
+            <tr>
+                {volist name="list" id="line"}
+                <td valign="top"><span><a href="/index.php/index/index/mori?id={$line.id}">{$line.word}</a></span></td>
+                {/volist}
+            </tr>
         </table>
+
         </div>
         <div class="tupian"><img width="360" height="360" src="{$temege.img}" /></div>
-    </div></div></body></html>
+        <div style="width: 30%;margin-top: 44%;margin-left: 4%;" align="center">
+            <audio controls="controls" id="voice2" >
+                <source src="{$temege.mp3}" id="voice" type="audio/mpeg">
+                您的浏览器不支持音频元素。
+            </audio>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

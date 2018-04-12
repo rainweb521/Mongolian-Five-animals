@@ -9,7 +9,7 @@ use \think\Request;
 use \think\View;
 class Login extends Controller{
     public function index(){
-        return \view('login',array('state'=>'登录用户'));
+        return \view('login');
     }
     public function signup(){
         $tip = Request::instance()->post('tip',0);
@@ -21,9 +21,9 @@ class Login extends Controller{
             $data['state'] = 1;
             $user_model = new User();
             $user_model->insert_UserInfo($data);
-            return \view('login',array('state'=>'注册成功请登录'));
+            return \view('login');
         }
-        return \view('signup',array('state'=>'注册新的用户'));
+        return \view('signup');
     }
     public function login(){
         $tip = Request::instance()->post('tip',0);

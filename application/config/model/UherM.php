@@ -16,7 +16,7 @@ class UherM extends Model{
      */
 //    protected $pk = 'uid';
 // 设置当前模型对应的完整数据表名称
-    protected $table = 'yimaga';
+    protected $table = 'uher';
     public function get_uherInfo($where=null){
         $data = UherM::where($where)->find();
         if ($data!=null){

@@ -11,31 +11,22 @@ use think\Controller;
 
 class Common extends Controller {
     public function __construct(){
+        /** 设置PHP请求的编码类型 */
         header("Content-type: text/html; charset=utf-8");
+        /** 设置报错形式 */
         error_reporting(E_ERROR | E_WARNING | E_PARSE);
         parent::__construct();
-//        $this->_initialize();
+        /** 调用函数判断是否已经登录 */
         $this->_init();
-//        $this->assign('title','中学化学教学系统');
+        /** 获取登录的状态 */
         $isLogin = $this->isLogin();
         if (!$isLogin) {
-            $login_state = '未登录';
+            $login_state = '0';
         }else{
-            $login_state = '已登录';
+            $login_state = '1';
         }
+        /** 将login_state的值返回到所有页面中 */
         $this->assign('login_state',$login_state);
-    }
-    protected function _initialize(){
-        //只报告错误,忽略通知
-        error_reporting(E_ALL ^ E_NOTICE);
-        // 定义当前请求的系统常量
-        define('NOW_TIME', $_SERVER['REQUEST_TIME']);
-        define('REQUEST_METHOD',$_SERVER['REQUEST_METHOD']);
-        define('IS_GET', REQUEST_METHOD =='GET' ? true : false);
-        define('IS_POST', REQUEST_METHOD =='POST' ? true : false);
-        define('IS_PUT', REQUEST_METHOD =='PUT' ? true : false);
-        define('IS_DELETE', REQUEST_METHOD =='DELETE' ? true : false);
-        return;
     }
 
     /**
@@ -47,13 +38,10 @@ class Common extends Controller {
        //  如果已经登录
         $isLogin = $this->isLogin();
         if (!$isLogin) {
+            /** 这里没有登录时不直接跳转到登录页面，因为体验不好，只定位到首页中 */
             $this->assign('User',array('username'=>'0'));
             // 跳转到登录页面
 //            $this->redirect('/index.php/index/login/index');
-//            $url = '/index.php?c=login';
-//            echo "<script language=\"javascript\">";
-//            echo "location.href=\"$url\"";
-//            echo "</script>";
         }else{
             $this->assign('User',session('User'));
         }

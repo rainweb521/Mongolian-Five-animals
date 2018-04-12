@@ -70,17 +70,17 @@
             <style>
                 .list{
                     float:left;
-                    width:75%;
+                    width:72%;
                     height:358px;
                     border:1px solid #dcdcdc;
                     background:#fff;
                     overflow:auto;
                 }
-                .list-tb{float:right;
+                .list-tb{float:left;
                     height:320px;
                 }
                 .list-tb td{
-                    align:right;
+                    align:left;
                     valign:top;
                     width:30px;
                 }
@@ -116,6 +116,9 @@
             <div style="width: 100%;">
             <div class="mongol-writing">{$temege.word}</div>
             <div class="list">
+                <div class="jieshao" style="float:left;border:5px solid #dcdcdc; background:#fff; overflow:auto;"><span class="mongol-writing">
+            {$temege.Meaning}
+        </span></div>
                 <table class="list-tb" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                         {volist name="list" id="line"}
@@ -125,6 +128,12 @@
                 </table>
             </div>
             <div class="tupian"><img width="100%" height="100%" src="{$temege.img}" /></div>
+                <div style="width: 30%;margin-top: 1%;margin-left: 4%;" align="center">
+                    <audio controls="controls" id="voice2" >
+                        <source src="{$temege.mp3}" id="voice" type="audio/mpeg">
+                        您的浏览器不支持音频元素。
+                    </audio>
+                </div>
             </div>
 
             <hr>
