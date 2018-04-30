@@ -1,5 +1,6 @@
 <?php
 namespace app\admin\controller;
+use app\config\model\Message;
 use app\config\model\Temege;
 use app\config\model\User;
 use Symfony\Component\Yaml\Unescaper;
@@ -85,5 +86,10 @@ class Index extends Common{
     }
     public function test(){
         return view('test');
+    }
+    public function message(){
+        $message_model = new Message();
+        $list = $message_model->get_MessageList();
+        return \view('message',array('list'=>$list));
     }
 }

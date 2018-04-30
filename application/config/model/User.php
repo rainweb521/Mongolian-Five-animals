@@ -42,9 +42,6 @@ class User extends Model{
         return $list;
     }
     public function delete_UserInfo($id){
-        $data = $this->get_filebedInfo(array('id'=>$id));
-        $data['state'] = 3;
-        $data['out_time'] = date('Y-m-d');
-        User::save($data,['id'=>$id]);
+        User::where(['u_id'=>$id])->delete();
     }
 }

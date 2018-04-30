@@ -48,7 +48,12 @@ class Account extends Common{
             return \view('show',array('u_id'=>0,'data'=>$data));
         }
     }
-
+    public function delete(){
+        $u_id = Request::instance()->get('u_id',0);
+        $user_model = new User();
+        $user_model->delete_UserInfo($u_id);
+        $this->success('删除成功');
+    }
     public function test(){
         return view('test');
     }

@@ -36,7 +36,7 @@
             <div class="tpl-portlet-components">
                 <div class="portlet-title">
                     <div class="caption font-green bold">
-                        <span class="am-icon-code"></span> 列表
+                        <span class="am-icon-code"></span> 留言列表
                     </div>
                     <div class="tpl-portlet-input tpl-fz-ml">
                         <div class="portlet-input input-small input-inline">
@@ -66,32 +66,19 @@
                                         <tr>
                                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
                                             <th class="table-id">ID</th>
-                                            <th class="table-title">用户名</th>
                                             <th class="table-type">邮箱</th>
-                                            <th class="table-author am-hide-sm-only">注册日期</th>
-                                            <th class="table-date am-hide-sm-only">最后登录日期</th>
-                                            <th class="table-author am-hide-sm-only">账号状态</th>
-                                            <th class="table-set">操作</th>
+                                            <th class="table-type">内容</th>
+                                            <th class="table-author am-hide-sm-only">日期</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {volist name="list" id="line"}
                                         <tr>
                                             <td><input type="checkbox"></td>
-                                            <td>{$line.u_id}</td>
-                                            <td>{$line.username}</td>
+                                            <td>{$line.id}</td>
                                             <td>{$line.email}</td>
-                                            <td class="am-hide-sm-only">{$line.register_time}</td>
-                                            <td class="am-hide-sm-only">{$line.login_time}</td>
-                                            <td class="am-hide-sm-only">{$line.state}</td>
-                                            <td>
-                                                <div class="am-btn-toolbar">
-                                                    <div class="am-btn-group am-btn-group-xs">
-                                                        <button type="button" class="am-btn am-btn-default am-btn-xs am-text-secondary" onclick="location.href='/admin.php/admin/account/show?u_id={$line.u_id}';"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                                                        <button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" onclick="location.href='/admin.php/admin/account/delete?u_id={$line.u_id}';"><span class="am-icon-trash-o"></span> 删除</button>
-                                                    </div>
-                                                </div>
-                                            </td>
+                                            <td>{$line.content}</td>
+                                            <td>{$line.time}</td>
                                         </tr>
                                         {/volist}
                                     </tbody>

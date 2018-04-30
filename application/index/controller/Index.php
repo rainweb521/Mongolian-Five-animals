@@ -4,6 +4,7 @@ use app\admin\controller\Mori;
 use app\config\model\CommentM;
 use app\config\model\Experiment;
 use app\config\model\HoniM;
+use app\config\model\Message;
 use app\config\model\MoriM;
 use app\config\model\Temege;
 use app\config\model\UherM;
@@ -141,28 +142,16 @@ class Index extends Common {
         return \view('test',array('data'=>$data));
 //        return \view('test');
     }
+    public function comment_show(){
+        return \view('comment');
+    }
     public function comment(){
-        $tip = Request::instance()->post('tip',0);
-        if ($tip==1){
-            if ($this->isLogin()){
-                $User = session('User');
-                $data['content'] = Request::instance()->post('content','');
-                $data['u_id'] = $User['u_id'];
-                $data['username'] = $User['username'];
-                $data['photo'] = $User['photo'];
-                $data['e_id'] = Request::instance()->post('e_id',1);
-                $data['e_title'] = Request::instance()->post('e_title','');
-                $data['add_time'] = date('Y-m-d');
-                $data['state'] = 1;
-                $data['status'] = 1;
-                $data['node'] = 0;
-                $data['type'] = 'User';
-                $comment_model = new CommentM();
-                $comment_model->insert_CommentMInfo($data);
-                $this->success('评论成功');
-            }
-        }
-        $this->error('您还未登录');
+        $data['content'] = Request::instance()->post('content','');
+        $data['email'] = Request::instance()->post('email','');
+        $data['time'] = date('Y-m-d');
+        $message_model = new Message();
+        $message_model->insert_MessageInfo($data);
+        $this->success('评论成功','/index.php/index/index');
     }
 
 }
